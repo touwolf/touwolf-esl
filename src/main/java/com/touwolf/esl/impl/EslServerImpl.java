@@ -24,11 +24,10 @@ public class EslServerImpl implements EslServer
     private EventLoopGroup group;
 
     @Override
-    public void start(int port)
+    public void start(int port, final EslDialPlan dialPlan)
     {
         try
         {
-            EslDialPlan dialPlan = Ctxs.app().find(EslDialPlan.class);
             group = new NioEventLoopGroup();
             try
             {
